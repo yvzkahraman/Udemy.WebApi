@@ -1,0 +1,38 @@
+﻿@model Udemy.ConsumeAPI.ResponseModels.ProductResponseModel
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Yeni Ürün Ekle</title>
+</head>
+<body>
+    @{ if (TempData["errorMessage"] != null)
+        {
+            <p style="color:red">
+
+                @TempData["errorMessage"]?.ToString()
+            </p>
+        }
+    }
+
+    <h1>Ürün Güncelle</h1>
+    <form asp-action="Update" asp-controller="Home" method="post">
+        <input type="hidden" asp-for="@Model.Id" />
+        <label>Ürün Adı:</label>
+        <input type="text" asp-for="@Model.Name" />
+        <br />
+        <hr />
+        <label>Ürün Fiyatı:</label>
+        <input asp-for="@Model.Price" />
+        <br />
+        <hr />
+        <label>Ürün Stoğu:</label>
+        <input asp-for="@Model.Stock" />
+        <br />
+        <hr />
+
+        <div>
+            <a asp-action="Index" asp-controller="Home">Geri Dön</a>
+            <button type="submit">Gönder</button>
+        </div>
+    </form>
+</body>
+</html>

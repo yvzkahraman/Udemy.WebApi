@@ -1,0 +1,20 @@
+﻿
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Yeni Dosya Ekle</title>
+</head>
+<body>
+    <h1>Dosya Ekle</h1>
+    <form asp-action="Upload" asp-controller="Home" method="post" enctype="multipart/form-data">
+        <label>Dosya Seçiniz:</label>
+        <input type="file" name="file" />
+        <br />
+       
+
+        <div>
+            <a asp-action="Index" asp-controller="Home">Geri Dön</a>
+            <button type="submit">Gönder</button>
+        </div>
+    </form>
+</body>
+</html>
