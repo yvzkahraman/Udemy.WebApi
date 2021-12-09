@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Cors;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -28,6 +29,7 @@ namespace Udemy.WebApi.Controllers
             _productRepository = productRepository;
         }
 
+        [Authorize]
         [HttpGet]
         public async Task<IActionResult> GetAll()
         {
@@ -37,6 +39,7 @@ namespace Udemy.WebApi.Controllers
         }
 
         //api/products/id=1
+        [Authorize(Roles ="Admin")]
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {

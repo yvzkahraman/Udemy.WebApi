@@ -40,6 +40,8 @@ namespace Udemy.WebApi
                     ValidAudience = "http://localhost",
                     IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes("Yavuzyavuzyavuz1.")),
                     ValidateIssuerSigningKey = true,
+                    ValidateLifetime = true,
+                    ClockSkew = TimeSpan.Zero,
                 };
             
             });
@@ -84,6 +86,7 @@ namespace Udemy.WebApi
 
             app.UseCors("UdemyCorsPolicy");
 
+            app.UseAuthentication();
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
